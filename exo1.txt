@@ -1,0 +1,49 @@
+ÉNONCÉ 1 — « Hello + prénom + dépôt »
+
+But : vérifier l’environnement, manipuler variables et entrées utilisateur.
+
+À faire
+
+Crée index.html + script.js et relie-les.
+
+Au chargement de la page, ton script doit :
+
+Demander ton prénom (prompt).
+
+Demander un dépôt initial (prompt).
+
+Si le dépôt n’est pas un nombre valide ou est négatif, considère-le comme 0.
+
+Afficher dans la console exactement :
+Compte créé pour <Prénom>. Solde : <montant> €
+
+Le montant doit être affiché avec 2 décimales.
+
+Exemples attendus
+
+Entrées : Olivier, 150 →
+Sortie console : Compte créé pour Olivier. Solde : 150.00 €
+
+Entrées : Elisa, -20 →
+Sortie console : Compte créé pour Elisa. Solde : 0.00 €
+
+Entrées : Aurel, abc →
+Sortie console : Compte créé pour Aurel. Solde : 0.00 €
+
+Contraintes
+
+Utilise prompt() pour les deux saisies.
+
+Convertis la saisie du dépôt en nombre (gestion de NaN).
+
+Pas d’alertes obligatoires (tu peux en mettre si tu veux), l’essentiel est l’affichage console conforme.
+
+Aucun code de solution ne doit m’être demandé : tu écris tout.
+
+Checklist de validation
+
+ J’ai bien 2 fichiers (index.html + script.js) et la console affiche quelque chose.
+
+ Les 3 cas d’exemples sortent exactement le texte demandé.
+
+ Le montant est toujours formatté sur 2 décimales.
