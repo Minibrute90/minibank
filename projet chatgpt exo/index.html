@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minibank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body class="app">
+    <header>
+        <h1>
+            MINI BANK
+        </h1>
+    
+    </header>
+    <main>
+        <form id="formulaire">
+            <h2>VOS INFORMATIONS</h2>
+            <input type="text" id="name" name="name" placeholder="Nom" required>
+            <input type="number" id="solde" name="solde" placeholder="Solde" required>
+            <input type="text" id="devise" name="devise" placeholder="Devise" required>
+            <input type="number" id="valeur" name="valeur" placeholder="Montant">
+            <button class="valeurFormulaire" type="button">Valider</button>
+        </form>
+
+        <script>
+                const valeurFormulaire = document.querySelector(".valeurFormulaire")
+
+                valeurFormulaire.addEventListener('click',()=>{
+                    let name = document.getElementById('name');
+                    let solde = document.getElementById('solde');
+                    let devise = document.getElementById('devise');
+                    let valeur = document.getElementById('valeur');
+
+
+                let message = " Bonjour " + name.value + ". Votre solde actuel est de : " + solde.value + devise.value + ".";
+                document.getElementById("resultat").textContent = message;
+
+                })
+        </script>
+
+        <div id="resultat">  
+        </div>
+    </main>
+    <footer>
+
+    </footer>       
+</body>
+</html>
