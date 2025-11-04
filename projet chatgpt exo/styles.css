@@ -34,11 +34,13 @@ h2{
     color:grey;
 }
 
-#resultat{
+.hidden{
     display: none;
+    padding: 0 !important;
+    background: transparent !important;
 }
 
-form, #resultat{
+form{
     margin-bottom: 12px;
     display: flex;
     flex-direction: column;
@@ -49,6 +51,9 @@ form, #resultat{
     background-color:white;
     box-shadow: 1px 1px 25px black;
 }
+
+
+
 
 
 input{
@@ -63,17 +68,46 @@ input{
     padding-left: 12px;
 }
 
-button{
-    text-align: center;
-    margin-top:16px;
-    background-color: green;
-    border:none;
-    width:120px;
-    height: 60px;
-    color:white;
-    font-size: larger;
+#button {
+    background: #007c2d;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
     cursor: pointer;
+    transition: 0.2s;
 }
+#button:hover {
+    background: #009b39;
+    transform: translateY(2px);
+}
+#button:active {
+    transform: scale(0.98);
+}
+
+#resultat {
+    margin-top: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    font-weight: 500;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-5px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
 
 
 

@@ -23,7 +23,7 @@
             <input type="number" id="solde" name="solde" placeholder="Solde" required>
             <input type="text" id="devise" name="devise" placeholder="Devise" required>
             <input type="number" id="valeur" name="valeur" placeholder="Montant">
-            <button class="valeurFormulaire" type="button">Valider</button>
+            <button class="valeurFormulaire" type="button" id="button">Valider</button>
         </form>
 
         <script>
@@ -42,11 +42,21 @@
                 })
         </script>
 
-        <div id="resultat">  
+        <div id="resultat" class="hidden">  
         </div>
     </main>
     <footer>
 
     </footer>       
 </body>
+<script>
+
+    const bouton = document.getElementById("button");
+    const resultat = document.getElementById("resultat");
+
+    bouton.addEventListener('click', () => {
+    resultat.classList.remove("hidden");
+    });
+
+</script>
 </html>
