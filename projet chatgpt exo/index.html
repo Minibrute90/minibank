@@ -38,7 +38,6 @@
                     let devise = document.getElementById('devise');
                     let valeur = document.getElementById('valeur');
                     
-
                     if ( valeur.value == 0){
                         let message = " Bonjour " + name.value + ". Votre solde actuel est de : " + Number(solde.value) + " " + devise.value + ".";
                         zoneResultat.textContent = message;
@@ -46,19 +45,34 @@
                     if ( valeur.value !=0){
                         let soldeTemp = Number(solde.value) + Number(valeur.value);
                         if (soldeTemp >= 0){
-                            solde.value=soldeTemp;
+                            Number(solde.value)=soldeTemp;
                             let message = "✅ Opération réussie ! Nouveau solde : " + Number(solde.value) + " " + devise.value + ".";
                             zoneResultat.textContent = message;
+        
+                        };
+                    };
+
+                    const historique = document.getElementById("historique");
+
+                    function ajouterOperation(){
+                    if (Number(valeur.value) > 0){
+                        let messageHisto = "+" + Number(valeur.value) + " --> Dépot -- Nouveau solde : " + Number(solde.value) + " " + devise.value + ".";
+                        historique.textContent = message;
+                    }
+                    else{
+                        let messageHisto = "+" + Number(valeur.value) + " --> Retrait -- Nouveau solde : " + Number(solde.value) + " " + devise.value + ".";
+                        historique.textContent = message;
                         }
-                        else{
-                            let message = "⛔ Opération refusée : solde insuffisant.";
-                            zoneResultat.textContent = message;
-                        }
-                    }  
+                    };
+                    ajouterOperation();
                 });
+                               
         </script>
 
         <div id="resultat" class="hidden">  
+        </div>
+
+        <div id="historique">
         </div>
     </main>
     <footer>
@@ -73,6 +87,8 @@
     bouton.addEventListener('click', () => {
     resultat.classList.remove("hidden");
     });
+
+    
 
 </script>
 </html>
