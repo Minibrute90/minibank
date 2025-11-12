@@ -27,47 +27,40 @@
         </form>
 
         <script>
-                const valeurFormulaire = document.querySelector(".valeurFormulaire")
+              
+        const valeurFormulaire = document.querySelector(".valeurFormulaire")
 
-                valeurFormulaire.addEventListener('click',()=>{
+            valeurFormulaire.addEventListener('click',()=>{ 
 
-                    const zoneResultat = document.getElementById("resultat");
+                const zoneResultat = document.getElementById("resultat"); 
 
-                    let name = document.getElementById('name');
-                    let solde = document.getElementById('solde');
-                    let devise = document.getElementById('devise');
-                    let valeur = document.getElementById('valeur');
-                    
-                    if ( valeur.value == 0){
-                        let message = " Bonjour " + name.value + ". Votre solde actuel est de : " + Number(solde.value) + " " + devise.value + ".";
-                        zoneResultat.textContent = message;
-                    };
-                    if ( valeur.value !=0){
-                        let soldeTemp = Number(solde.value) + Number(valeur.value);
-                        if (soldeTemp >= 0){
-                            Number(solde.value)=soldeTemp;
-                            let message = "✅ Opération réussie ! Nouveau solde : " + Number(solde.value) + " " + devise.value + ".";
-                            zoneResultat.textContent = message;
-        
-                        };
-                    };
-
-                    const historique = document.getElementById("historique");
-
-                    function ajouterOperation(){
-                    if (Number(valeur.value) > 0){
-                        let messageHisto = "+" + Number(valeur.value) + " --> Dépot -- Nouveau solde : " + Number(solde.value) + " " + devise.value + ".";
-                        historique.textContent = message;
+                let name = document.getElementById('name'); 
+                let solde = document.getElementById('solde'); 
+                let devise = document.getElementById('devise'); 
+                let valeur = document.getElementById('valeur'); 
+                
+                if ( valeur.value == 0){ let message = " Bonjour " + name.value + ". Votre solde actuel est de : " + Number(solde.value) + " " + devise.value + "."; 
+                    zoneResultat.textContent = message; }; 
+                if ( valeur.value !=0){ 
+                    let soldeTemp = Number(solde.value) + Number(valeur.value); 
+                    if (soldeTemp >= 0){ 
+                        solde.value=soldeTemp; 
+                        let message = "✅ Opération réussie ! Nouveau solde : " + Number(solde.value) + " " + devise.value + "."; 
+                    zoneResultat.textContent = message; 
                     }
-                    else{
-                        let messageHisto = "+" + Number(valeur.value) + " --> Retrait -- Nouveau solde : " + Number(solde.value) + " " + devise.value + ".";
-                        historique.textContent = message;
-                        }
-                    };
-                    ajouterOperation();
-                });
-                               
+                    else{ 
+                        let message = "⛔ Opération refusée : solde insuffisant."; 
+                    zoneResultat.textContent = message; 
+                    }    
+                } 
+            });
+
         </script>
+
+
+
+
+
 
         <div id="resultat" class="hidden">  
         </div>
