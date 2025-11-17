@@ -39,45 +39,48 @@
                     let name = document.getElementById('name'); 
                     let solde = document.getElementById('solde'); 
                     let devise = document.getElementById('devise'); 
-                    let valeur = document.getElementById('valeur'); 
+                    let valeur = document.getElementById('valeur');
+                    const tabOperation =[solde.value, devise.value, valeur.value]; 
                     
                     if ( valeur.value == 0){ 
                         let message = " Bonjour " + name.value + ". Votre solde actuel est de : " + Number(solde.value) + " " + devise.value + "."; 
                         zoneResultat.textContent = message;
-                         };
-                    if ( valeur.value !=0){ 
+                        }
+                    else{ 
                         let soldeTemp = Number(solde.value) + Number(valeur.value); 
                         if (soldeTemp >= 0){ 
                             solde.value=soldeTemp; 
-                            let message = "✅ Opération réussie ! Nouveau solde : " + Number(solde.value) + " " + devise.value + "."; 
-                            zoneResultat.textContent = message; 
+                            let message = "✅ Opération réussie ! Nouveau solde : " + Number(solde.value) + " " + devise.value + ".";
+
+                            zoneResultat.textContent = message;
+                            let soldeApres = Number(solde.value + valeur.value);
+
+                            function ajouterOperation(){
+                                if (soldeApres > Number(solde.value)){
+                                let messageHistorique = "+" + Number(valeur.value) + devise.value + " • Dépôt — Nouveau solde : " + Number(solde.value) + devise.value + ".";
+                                zoneHistorique.style.color = "#008000";
+                                zoneHistorique.textContent = messageHistorique;
+                                const pushOperation = tabOperation.push=[solde.value, devise.value, valeur.value];
+                                }
+
+                                else{
+                                let messageHistorique = Number(valeur.value) + devise.value + " • Retrait — Nouveau solde : " + Number(solde.value) + devise.value + ".";
+
+                                zoneHistorique.style.color = "#FF0000";
+                                zoneHistorique.textContent = messageHistorique;
+                                const pushOperation = tabOperation.push=[solde.value, devise.value, valeur.value];
+                                }  
+                            }  
+                            ajouterOperation();
+                            console.log(tabOperation);
                         }
                         else{ 
                             let message = "⛔ Opération refusée : solde insuffisant."; 
                             zoneResultat.textContent = message; 
                         }    
                     }
-
-                 
+                    
                 });
-
-                let montant = Number(valeur.value);
-                let soldeApres = Number(solde.value + montant);
-                
-                function ajouterOperation(){
-                    if (soldeApres > Number(solde.value)){
-                        let messageHistorique = "+" + Number(valeur.value) + devise.value + " • Dépôt — Nouveau solde : " + Number(solde.value) + devise.value + ".";
-                        zoneHistorique.textContent = messageHistorique;
-                        }
-                    else{
-                        let messageHistorique = Number(valeur.value) + devise.value + " • Retrait — Nouveau solde : " + Number(solde.value) + devise.value + ".";
-                        zoneHistorique.textContent = messageHistorique; 
-                        }
-                        
-                    }  
-
-                ajouterOperation();
-
                 </script>
 
             <div id="resultat" class="hidden">  
@@ -85,6 +88,10 @@
         </div>
         <div class="column">
                 <div id="historique">
+                </div>
+        </div>
+        <div class="column">
+                <div id="historique2">
                 </div>
         </div>
     </main>
